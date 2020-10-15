@@ -1,4 +1,4 @@
-import { List, Avatar, Space } from 'antd'
+import { List, Avatar, Space, Skeleton } from 'antd'
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons'
 
 const listData = []
@@ -61,12 +61,14 @@ const ArticlesList = () => {
             />
           }
         >
-          <List.Item.Meta
-            avatar={<Avatar src={item.avatar} />}
-            title={<a href={item.href}>{item.title}</a>}
-            description={item.description}
-          />
-          {item.content}
+          <Skeleton>
+            <List.Item.Meta
+              avatar={<Avatar src={item.avatar} />}
+              title={<a href={item.href}>{item.title}</a>}
+              description={item.description}
+            />
+            {item.content}
+          </Skeleton>
         </List.Item>
       )}
     />
